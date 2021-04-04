@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 @Configuration
@@ -17,5 +19,10 @@ public class SpringAppConfig {
     @Bean
     public Scanner getScannerBean() {
         return new Scanner(System.in);
+    }
+
+    @Bean
+    public BufferedReader getBufferedReader() {
+        return new BufferedReader(new InputStreamReader(System.in));
     }
 }

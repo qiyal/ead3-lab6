@@ -13,7 +13,7 @@ public class Collection {
 
     @ManyToMany(
             fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL
+            cascade = CascadeType.MERGE
     )
     @JoinTable(
             name = "collections_books",
@@ -23,7 +23,9 @@ public class Collection {
     private List<Book> books;
 
     // empty constructor
-    public Collection() {}
+    public Collection() {
+        books = new ArrayList<>();
+    }
 
     // getters and setters
     public Long getId() {

@@ -1,6 +1,6 @@
 package spring.lab6.demo.entity;
 
-import spring.lab6.demo.model.RequestStatusEnum;
+import spring.lab6.demo.model.NotificationStatusEnum;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,9 +14,9 @@ public class Notification {
     private String message;
 
     @Enumerated(EnumType.STRING)
-    private RequestStatusEnum status;
+    private NotificationStatusEnum status;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -48,11 +48,11 @@ public class Notification {
         this.message = message;
     }
 
-    public RequestStatusEnum getStatus() {
+    public NotificationStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(RequestStatusEnum status) {
+    public void setStatus(NotificationStatusEnum status) {
         this.status = status;
     }
 
@@ -62,5 +62,10 @@ public class Notification {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    @Override
+    public String toString() {
+        return "Date: " + date + " Message: " + message;
     }
 }

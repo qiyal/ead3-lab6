@@ -9,6 +9,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String login;
+    private String password;
     private String firstName;
     private String lastName;
 
@@ -36,6 +37,14 @@ public class Member {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -69,4 +78,11 @@ public class Member {
     public void setRequests(Set<Request> requests) {
         this.requests = requests;
     }
+
+    @Override
+    public String toString() {
+        return "Login: " + login + " Full Name: " + firstName + " " + lastName;
+    }
+
+
 }

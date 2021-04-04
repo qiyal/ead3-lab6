@@ -6,5 +6,6 @@ import spring.lab6.demo.entity.Member;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
-
+    boolean existsMemberByLoginAndPassword(String login, String password);
+    Member getMemberByLogin(String login);
 }

@@ -1,7 +1,6 @@
 package spring.lab6.demo.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -89,4 +88,10 @@ public class Book {
     public void setRequests(Set<Request> requests) {
         this.requests = requests;
     }
+
+    public String getShortInfoStr() {
+        return "Name: " + name + " Author: " + author + " Year: " + year + " Description: " + description.substring(0, 10);
+    }
+
+
 }

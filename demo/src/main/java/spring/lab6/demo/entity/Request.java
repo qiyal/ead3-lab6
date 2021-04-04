@@ -17,11 +17,11 @@ public class Request {
     @Enumerated(EnumType.STRING)
     private RequestStatusEnum status;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "book_id")
     private Book book;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -85,4 +85,8 @@ public class Request {
         this.member = member;
     }
 
+    @Override
+    public String toString() {
+        return "Status: " + status + " Book: " + book.getShortInfoStr() + " Member: " + member;
+    }
 }
