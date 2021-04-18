@@ -29,12 +29,8 @@ public class MemberController {
 //        return memberService.getByLogin(login);
 //    }
 
-    @GetMapping("/create")
-    public Member createNewMember(String login, String password) {
-        Member member = new Member();
-        member.setLogin(login);
-        member.setPassword(password);
-
+    @PostMapping("/create")
+    public Member createNewMember(@RequestBody Member member) {
         return memberService.createMember(member);
     }
 }
