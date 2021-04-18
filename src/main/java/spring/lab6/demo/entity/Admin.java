@@ -1,9 +1,6 @@
 package spring.lab6.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Admin {
@@ -12,6 +9,18 @@ public class Admin {
     private Long id;
     private String username;
     private String password;
+
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "admin_roles",
+//            joinColumns = {
+//                    @JoinColumn(name = "admin_id")
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "role_id")
+//            }
+//    )
+//    private List<Role> roles;
 
     // empty constructor
     public Admin() {}

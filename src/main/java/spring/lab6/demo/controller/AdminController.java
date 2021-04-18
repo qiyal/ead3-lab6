@@ -10,15 +10,15 @@ import spring.lab6.demo.service.implement.AdminService;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/admins")
+//@RestController
+//@RequestMapping("/admins")
 public class AdminController {
-    @Autowired
-    private AdminService adminService;
-
-    // GET
-    @GetMapping("")
-    public List<Admin> getAllAdmins() {
-        return adminService.getAll();
-    }
+//    @Autowired
+//    private AdminService adminService;
+//
+//    // GET
+//    @GetMapping("")
+//    public List<Admin> getAllAdmins() {
+//        return adminService.getAll();
+//    }
 }

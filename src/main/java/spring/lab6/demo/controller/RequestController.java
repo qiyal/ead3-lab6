@@ -37,13 +37,13 @@ public class RequestController {
     }
 
     // POST
-    @PostMapping("")
+    @PostMapping("/create")
     public Request makeNewRequest(@RequestBody PostDataForRequest data) {
         return requestService.makeNewRequest(data.memberLogin, data.bookId);
     }
 
     // PATCH
-    @PatchMapping("/{id}")
+    @PatchMapping("/update/{id}")
     public Request changeRequestStatus(@PathVariable("id") Long id, @RequestParam("status") RequestStatusEnum status) {
         if (status == RequestStatusEnum.ISSUE) {
             return requestService.changeStatusToIssue(id);

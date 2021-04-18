@@ -1,17 +1,34 @@
 package spring.lab6.demo.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-public class Member {
+public class Member implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String login;
     private String password;
     private String firstName;
     private String lastName;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "member_roles",
+            joinColumns = {
+                    @JoinColumn(name = "member_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "role_id")
+            }
+    )
+    private List<Role> roles;
 
 //    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
 //    private Set<Notification> notifications;
@@ -39,8 +56,14 @@ public class Member {
         this.login = login;
     }
 
+    @Override
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
     }
 
     public void setPassword(String password) {
@@ -63,19 +86,36 @@ public class Member {
         this.lastName = lastName;
     }
 
-//    public Set<Notification> getNotifications() {
-//        return notifications;
-//    }
-//
-//    public void setNotifications(Set<Notification> notifications) {
-//        this.notifications = notifications;
-//    }
-//
-//    public Set<Request> getRequests() {
-//        return requests;
-//    }
-//
-//    public void setRequests(Set<Request> requests) {
-//        this.requests = requests;
-//    }
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

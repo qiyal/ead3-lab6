@@ -25,13 +25,13 @@ public class CollectionController {
     }
 
     // POST
-    @PostMapping("")
+    @PostMapping("/create")
     public Collection saveNewCollection(@RequestBody Collection collection) {
         return collectionService.save(collection);
     }
 
     // PUT
-    @PutMapping("")
+    @PutMapping("/update")
     public Collection putCollection(@RequestBody Collection collection) {
         return collectionService.save(collection);
     }
