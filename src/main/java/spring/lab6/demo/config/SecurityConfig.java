@@ -30,6 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/requests/over-due-date/**").permitAll()
                 .antMatchers("/requests/create/**").permitAll()
                 .antMatchers("/requests/update/**").hasAuthority("ADMIN")
+                .antMatchers("/v2/api-docs",
+                        "/swagger-resources/**",
+                        "/configuration/ui",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtTokenGeneratorFilter(authenticationManager()))
