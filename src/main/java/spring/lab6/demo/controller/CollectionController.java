@@ -18,25 +18,25 @@ public class CollectionController {
     @Autowired
     private BookService bookService;
 
-    // GET
+    // GET - 1
     @GetMapping("")
     public List<Collection> getAllCollections() {
         return collectionService.getAll();
     }
 
-    // POST
+    // POST - 1
     @PostMapping("/create")
     public Collection saveNewCollection(@RequestBody Collection collection) {
         return collectionService.save(collection);
     }
 
-    // PUT
+    // PUT - 1
     @PutMapping("/update")
     public Collection putCollection(@RequestBody Collection collection) {
         return collectionService.save(collection);
     }
 
-    // PATCH
+    // PATCH - 1
     @PatchMapping("/{id}")
     public Collection addBookInCollection(@PathVariable("id") Long collectionId, @RequestParam("bookId") Long bookId) {
         Book book = bookService.getBookById(bookId);
@@ -45,7 +45,7 @@ public class CollectionController {
         return collectionService.save(collection);
     }
 
-    // DELETE
+    // DELETE - 1
     @DeleteMapping("/{id}")
     public void deleteCollection(@PathVariable Long id) {
         collectionService.delete(id);

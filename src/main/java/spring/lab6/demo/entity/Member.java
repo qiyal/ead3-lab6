@@ -1,5 +1,9 @@
 package spring.lab6.demo.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,6 +12,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Member implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,24 +45,24 @@ public class Member implements UserDetails {
 //    private Set<Request> requests;
 
     // empty constructor
-    public Member() {}
+//    public Member() {}
 
     // getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getLogin() {
+//        return login;
+//    }
+//
+//    public void setLogin(String login) {
+//        this.login = login;
+//    }
 
     @Override
     public String getPassword() {
@@ -66,33 +74,33 @@ public class Member implements UserDetails {
         return login;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
+//
+//    public List<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<Role> roles) {
+//        this.roles = roles;
+//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

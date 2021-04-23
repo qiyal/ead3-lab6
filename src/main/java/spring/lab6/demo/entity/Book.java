@@ -1,10 +1,19 @@
 package spring.lab6.demo.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,56 +31,56 @@ public class Book {
 //    private Set<Request> requests;
 
     // empty constructor
-    public Book () {}
+//    public Book () {}
 
     // getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getAuthor() {
+//        return author;
+//    }
+//
+//    public void setAuthor(String author) {
+//        this.author = author;
+//    }
+//
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+//
+//    public Integer getYear() {
+//        return year;
+//    }
+//
+//    public void setYear(Integer year) {
+//        this.year = year;
+//    }
+//
+//    public Integer getQuantity() {
+//        return quantity;
+//    }
+//
+//    public void setQuantity(Integer quantity) {
+//        this.quantity = quantity;
+//    }
 
 //    public List<Collection> getCollections() {
 //        return collections;
@@ -92,6 +101,4 @@ public class Book {
 //    public String getShortInfoStr() {
 //        return "Name: " + name + " Author: " + author + " Year: " + year + " Description: " + description;
 //    }
-
-
 }

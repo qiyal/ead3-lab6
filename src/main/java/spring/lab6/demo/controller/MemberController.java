@@ -13,7 +13,7 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    // GET
+    // GET - 2
     @GetMapping("")
     public List<Member> getAllMembers() {
         return memberService.getAll();
@@ -29,6 +29,7 @@ public class MemberController {
 //        return memberService.getByLogin(login);
 //    }
 
+    // POST - 1
     @PostMapping("/create")
     public Member createNewMember(@RequestBody Member member) {
         return memberService.createMember(member);

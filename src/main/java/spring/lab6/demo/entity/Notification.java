@@ -1,11 +1,19 @@
 package spring.lab6.demo.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import spring.lab6.demo.model.NotificationStatusEnum;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,46 +32,46 @@ public class Notification {
     private Member member;
 
     // empty constructor
-    public Notification() {}
+//    public Notification() {}
 
     // getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public NotificationStatusEnum getStatus() {
-        return status;
-    }
-
-    public void setStatus(NotificationStatusEnum status) {
-        this.status = status;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public Date getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(Date date) {
+//        this.date = date;
+//    }
+//
+//    public String getMessage() {
+//        return message;
+//    }
+//
+//    public void setMessage(String message) {
+//        this.message = message;
+//    }
+//
+//    public NotificationStatusEnum getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(NotificationStatusEnum status) {
+//        this.status = status;
+//    }
+//
+//    public Member getMember() {
+//        return member;
+//    }
+//
+//    public void setMember(Member member) {
+//        this.member = member;
+//    }
 }
